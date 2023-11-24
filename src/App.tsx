@@ -1,10 +1,11 @@
 import "./App.css";
+import Header from "./components/Header/Header";
 import UserSearchbar from "./components/UserSearchbar/UserSearchbar";
 
 function App() {
   return (
     <>
-      <div>MVST.</div>
+      <Header />
       <UserSearchbar />
     </>
   );
