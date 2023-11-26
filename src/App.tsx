@@ -6,7 +6,9 @@ function App() {
   return (
     <>
       <Header />
-      <UserSearchbar />
+      <div className="container">
+        <UserSearchbar />
+      </div>
     </>
   );
 }

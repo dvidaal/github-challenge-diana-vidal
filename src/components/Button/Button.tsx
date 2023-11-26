@@ -1,6 +1,7 @@
+import ButtonStyled from "./ButtonStyled";
+
 interface ButtonProps {
   text?: string;
-  icon?: JSX.Element;
   className?: string;
   ariaLabel?: string;
   action?: () => void;
@@ -8,9 +9,9 @@ interface ButtonProps {
 
 const Button = ({ className, ariaLabel, action }: ButtonProps): JSX.Element => {
   return (
-    <button onClick={action} className={className} aria-label={ariaLabel}>
-      Submit
-    </button>
+    <ButtonStyled onClick={action} className={className} aria-label={ariaLabel}>
+      <img src="./arrow.png" width="35" height="35" alt="arrow" />
+    </ButtonStyled>
   );
 };
 

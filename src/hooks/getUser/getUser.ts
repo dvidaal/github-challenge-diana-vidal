@@ -4,7 +4,7 @@ import { GithubResponse, UserData } from "../../types/types";
 
 const getUser = async (username: string): Promise<UserData> => {
   const octokit = new Octokit({
-    auth: "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",
+    auth: "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",
   });
 
   try {
@@ -15,7 +15,6 @@ const getUser = async (username: string): Promise<UserData> => {
       },
     });
 
-    console.log("Octokit User Information:");
     console.log(response.data);
   } catch (error) {
     if (isAxiosError(error))
@@ -30,10 +29,11 @@ const getUser = async (username: string): Promise<UserData> => {
       login: userInfoData.login,
       repos_url: userInfoData.repos_url,
       avatar_url: userInfoData.avatar_url,
+      name: userInfoData.name,
     };
   } catch (error) {
     console.error("Error fetching users", error);
-    return { login: "", avatar_url: "", repos_url: "" }; //CANVIAR
+    return { login: "", avatar_url: "", repos_url: "", name: "" }; //CANVIAR
   }
 };
 

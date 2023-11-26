@@ -2,12 +2,15 @@ import { useState } from "react";
 import Button from "../Button/Button";
 import getUser from "../../hooks/getUser/getUser";
 import { UserData } from "../../types/types";
+import UserSearchbarStyled from "./UserSearchbarStyled";
+import UserProfile from "../UserProfile/UserProfile";
 
 const UserSearchbar = (): JSX.Element => {
   const [user, setUser] = useState<UserData>({
     login: "",
     avatar_url: "",
     repos_url: "",
+    name: "",
   });
 
   const [inputValue, setInputValue] = useState("");
@@ -25,16 +28,17 @@ const UserSearchbar = (): JSX.Element => {
 
   return (
     <>
-      <div>
+      <UserSearchbarStyled>
         <input
           type="text"
-          placeholder="Type GitHub username"
+          placeholder="Search username"
           value={inputValue}
           onChange={onChangeHandler}
+          className="field"
         />
-        <Button action={handleSearch} />
-        <span>{user.login}</span>
-      </div>
+        <Button text="Search" action={handleSearch} />
+      </UserSearchbarStyled>
+      <UserProfile user={user} />
     </>
   );
 };
