@@ -1,8 +1,10 @@
+import HeaderStyled from "./HeaderStyled";
+
 const Header = () => {
   return (
-    <header>
+    <HeaderStyled>
       <h1>GitHub Glorified List</h1>
-    </header>
+    </HeaderStyled>
   );
 };
 
