@@ -25,7 +25,6 @@ const UserSearchbar = (): JSX.Element => {
 
   return (
     <>
-      <h1>GitHub Glorified List</h1>
       <div>
         <input
           type="text"
