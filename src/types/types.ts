@@ -2,6 +2,7 @@ export interface UserData {
   login: string;
   repos_url: string;
   avatar_url: string;
+  name: string;
 }
 
 export interface GithubResponse {
