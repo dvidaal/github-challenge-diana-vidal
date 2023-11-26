@@ -7,8 +7,10 @@ box-sizing: border-box;
 
 body {
   margin: 0;
+  padding: 0;
   font-family: 'Work Sans', sans serif;
   min-height: 100vh;
+  background-color: #fff;
 }
 
 ul,
@@ -27,9 +29,6 @@ a{
 
 button {
   font-family: inherit;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   border-radius: 20px;
   cursor: pointer;
   border: none;
@@ -38,7 +37,7 @@ button {
 
 h1,
 h2 {
-  font-size: 30px;
+  font-size: 3rem;
   margin: 0;
 }
 
