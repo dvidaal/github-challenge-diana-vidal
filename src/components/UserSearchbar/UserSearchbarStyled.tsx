@@ -13,6 +13,10 @@ const UserSearchbarStyled = styled.div`
     color: #fff;
     border-radius: 10px;
   }
+
+  .repo {
+    color: #000;
+  }
 `;
 
 export default UserSearchbarStyled;

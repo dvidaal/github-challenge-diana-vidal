@@ -1,23 +1,31 @@
 import { useState } from "react";
 import Button from "../Button/Button";
 import getUser from "../../hooks/getUser/getUser";
-import { UserData } from "../../types/types";
+import { RepositoriesData, UserData } from "../../types/types";
 import UserSearchbarStyled from "./UserSearchbarStyled";
 import UserProfile from "../UserProfile/UserProfile";
+import getRepository from "../../hooks/getRepository/getRepository";
 
 const UserSearchbar = (): JSX.Element => {
   const [user, setUser] = useState<UserData>({
     login: "",
     avatar_url: "",
-    repos_url: "",
     name: "",
   });
+
+  /*   const [repositories, setRepositories] = useState<RepositoryData>({
+    name: "",
+  }); */
+
+  const [repositories, setRepositories] = useState<RepositoriesData>([]);
 
   const [inputValue, setInputValue] = useState("");
 
   const handleSearch = async () => {
     const response = await getUser(inputValue);
     setUser(response);
+    const responseRepo = await getRepository(inputValue);
+    setRepositories(responseRepo);
   };
 
   const onChangeHandler = ({
@@ -38,7 +46,7 @@ const UserSearchbar = (): JSX.Element => {
         />
         <Button text="Search" action={handleSearch} />
       </UserSearchbarStyled>
-      <UserProfile user={user} />
+      <UserProfile user={user} repositories={repositories} />
     </>
   );
 };
