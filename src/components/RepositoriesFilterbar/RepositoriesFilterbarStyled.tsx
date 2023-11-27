@@ -9,11 +9,11 @@ const RepositoriesFilterbarStyled = styled.div`
   .filter-bar {
     background-color: #fff;
     border: 1px solid #56585b;
-    width: 285px;
     height: 40px;
     padding: 10px 16px;
     color: #000;
     border-radius: 10px;
+    width: 100%;
   }
 
   .filter-options {
