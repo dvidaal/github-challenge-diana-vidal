@@ -5,6 +5,7 @@ interface ButtonProps {
   className?: string;
   ariaLabel?: string;
   action?: () => void;
+  type: string;
 }
 
 const Button = ({ className, ariaLabel, action }: ButtonProps): JSX.Element => {

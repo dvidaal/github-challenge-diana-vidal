@@ -8,6 +8,7 @@ export interface RepositoryData {
   name: string;
   description: string | null;
   language: null | string;
+  id?: number;
 }
 
 export type RepositoriesData = RepositoryData[];

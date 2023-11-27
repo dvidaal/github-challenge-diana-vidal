@@ -4,6 +4,7 @@ const UserSearchbarStyled = styled.div`
   display: flex;
   justify-content: center;
   color: black;
+  width: 100%;
 
   .field {
     background-color: #fff;
