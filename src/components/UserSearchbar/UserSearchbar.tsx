@@ -42,6 +42,7 @@ const UserSearchbar = (): JSX.Element => {
         />
         <Button text="Search" action={handleSearch} />
       </UserSearchbarStyled>
+
       <UserProfile user={user} repositories={repositories} />
     </>
   );

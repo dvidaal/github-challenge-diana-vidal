@@ -12,7 +12,7 @@ const RepositoriesFilterbarStyled = styled.div`
     width: 285px;
     height: 40px;
     padding: 10px 16px;
-    color: #fff;
+    color: #000;
     border-radius: 10px;
   }
 

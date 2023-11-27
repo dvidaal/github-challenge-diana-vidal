@@ -20,7 +20,9 @@ const UserProfile = ({ user, repositories }: UserProps): JSX.Element => {
           width="296"
           height="296"
         />
-        <RepositoriesFilterbar />
+
+        {repositories.length > 0 && <RepositoriesFilterbar />}
+
         <ul className="user-profile__repository-section">
           {repositories.map((repo: RepositoryData, index: number) => (
             <li key={index} className="user-profile__repositories">
