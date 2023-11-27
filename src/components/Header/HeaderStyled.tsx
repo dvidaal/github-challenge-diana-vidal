@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const HeaderStyled = styled.div`
+const HeaderStyled = styled.header`
   padding: 10px 0 20px 10px;
   display: flex;
   font-family: "Roboto";
