@@ -6,16 +6,13 @@ const UserSearchbarStyled = styled.div`
   color: black;
 
   .field {
+    background-color: #fff;
     border: 1px solid #56585b;
     width: 230px;
     height: 40px;
     padding: 10px 16px;
-    color: #fff;
-    border-radius: 10px;
-  }
-
-  .repo {
     color: #000;
+    border-radius: 10px;
   }
 `;
 
