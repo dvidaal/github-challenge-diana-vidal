@@ -40,9 +40,8 @@ const UserSearchbar = (): JSX.Element => {
           onChange={onChangeHandler}
           className="field"
         />
-        <Button text="Search" action={handleSearch} />
+        <Button text="Search" type="submit" action={handleSearch} />
       </UserSearchbarStyled>
-
       <UserProfile user={user} repositories={repositories} />
     </>
   );

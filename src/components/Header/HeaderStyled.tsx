@@ -6,6 +6,7 @@ const HeaderStyled = styled.header`
   font-family: "Roboto";
   color: #000;
   justify-content: center;
+  text-align: center;
 `;
 
 export default HeaderStyled;

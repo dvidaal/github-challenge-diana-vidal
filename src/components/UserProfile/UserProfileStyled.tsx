@@ -5,6 +5,7 @@ const UserProfileStyled = styled.article`
   flex-direction: column;
   align-items: center;
   gap: 5px;
+  width: 100%;
 
   .user-profile {
     &__username {
