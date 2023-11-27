@@ -27,7 +27,7 @@ const UserProfileStyled = styled.article`
     &__repository-section {
       list-style: none;
       padding: 0;
-      width: 100%; /* Asegura que el ul ocupe todo el ancho */
+      width: 100%;
     }
 
     &__repositories {

@@ -13,10 +13,6 @@ const UserSearchbar = (): JSX.Element => {
     name: "",
   });
 
-  /*   const [repositories, setRepositories] = useState<RepositoryData>({
-    name: "",
-  }); */
-
   const [repositories, setRepositories] = useState<RepositoriesData>([]);
 
   const [inputValue, setInputValue] = useState("");
@@ -46,6 +42,7 @@ const UserSearchbar = (): JSX.Element => {
         />
         <Button text="Search" action={handleSearch} />
       </UserSearchbarStyled>
+
       <UserProfile user={user} repositories={repositories} />
     </>
   );

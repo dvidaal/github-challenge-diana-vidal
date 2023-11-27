@@ -21,7 +21,7 @@ const getUser = async (username: string): Promise<UserData> => {
     console.error("Error fetching users", error);
   }
 
-  return { login: "", avatar_url: "", name: "" }; //CANVIAR
+  return { login: "", avatar_url: "", name: "" };
 };
 
 export default getUser;
