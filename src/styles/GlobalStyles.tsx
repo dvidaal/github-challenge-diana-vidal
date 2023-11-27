@@ -37,8 +37,15 @@ button {
 
 h1,
 h2 {
-  font-size: 3rem;
+  font-size: 2rem;
   margin: 0;
+  color: #000;
+}
+
+span{
+  padding: 0;
+  margin: 0;
+  color: #000;
 }
 
 `;
