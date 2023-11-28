@@ -1,7 +1,5 @@
 import { RepositoriesData, UserData, RepositoryData } from "../../types/types";
-import RepositoriesFilterbar from "../RepositoriesFilterbar/RepositoriesFilterbar";
 import UserProfileStyled from "./UserProfileStyled";
-
 interface UserProps {
   user: UserData;
   repositories: RepositoriesData;
@@ -21,16 +19,15 @@ const UserProfile = ({ user, repositories }: UserProps): JSX.Element => {
           height="296"
         />
 
-        {repositories.length > 0 && <RepositoriesFilterbar />}
-
         <ul className="user-profile__repository-section">
-          {repositories.map((repo: RepositoryData, index: number) => (
-            <li key={index} className="user-profile__repositories">
-              {repo.name}
-              <span className="user-profile__language">{repo.language}</span>
-              <p className="user-profile__description">{repo.description}</p>
-            </li>
-          ))}
+          {repositories &&
+            repositories.map((repo: RepositoryData, index: number) => (
+              <li key={index} className="user-profile__repositories">
+                {repo.name}
+                <span className="user-profile__language">{repo.language}</span>
+                <p className="user-profile__description">{repo.description}</p>
+              </li>
+            ))}
         </ul>
       </UserProfileStyled>
     </>

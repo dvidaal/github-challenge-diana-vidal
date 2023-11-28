@@ -12,6 +12,10 @@ export interface RepositoryData {
 }
 
 export type RepositoriesData = RepositoryData[];
+
+export interface RepositoriesFilterData {
+  items: RepositoriesData;
+}
 export interface GithubResponse {
   avatar_url: string;
   bio: null | string;

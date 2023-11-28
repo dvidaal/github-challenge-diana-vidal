@@ -1,10 +1,11 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import Button from "../Button/Button";
 import getUser from "../../hooks/getUser/getUser";
 import { RepositoriesData, UserData } from "../../types/types";
 import UserSearchbarStyled from "./UserSearchbarStyled";
 import UserProfile from "../UserProfile/UserProfile";
 import getRepository from "../../hooks/getRepository/getRepository";
+import RepositoriesFilterbar from "../RepositoriesFilterbar/RepositoriesFilterbar";
 
 const UserSearchbar = (): JSX.Element => {
   const [user, setUser] = useState<UserData>({
@@ -14,25 +15,29 @@ const UserSearchbar = (): JSX.Element => {
   });
 
   const [repositories, setRepositories] = useState<RepositoriesData>([]);
-
   const [inputValue, setInputValue] = useState("");
 
-  const handleSearch = async () => {
+  const handleSearch = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
     const response = await getUser(inputValue);
     setUser(response);
-    const responseRepo = await getRepository(inputValue);
+
+    const responseRepo = await getRepository(response.login);
     setRepositories(responseRepo);
   };
 
-  const onChangeHandler = ({
-    target: { value },
-  }: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(value);
+  const onUpdateFilteredRepositories = (filteredRepos: RepositoriesData) => {
+    setRepositories(filteredRepos);
+  };
+
+  const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value);
   };
 
   return (
     <>
-      <UserSearchbarStyled>
+      <UserSearchbarStyled onSubmit={handleSearch}>
         <input
           type="text"
           placeholder="Search username"
@@ -40,9 +45,16 @@ const UserSearchbar = (): JSX.Element => {
           onChange={onChangeHandler}
           className="field"
         />
-        <Button text="Search" type="submit" action={handleSearch} />
+        <Button text="Search" type="submit" />
       </UserSearchbarStyled>
       <UserProfile user={user} repositories={repositories} />
+
+      {user.login && (
+        <RepositoriesFilterbar
+          username={user.login}
+          onUpdateFilteredRepositories={onUpdateFilteredRepositories}
+        />
+      )}
     </>
   );
 };

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const UserSearchbarStyled = styled.div`
+const UserSearchbarStyled = styled.form`
   display: flex;
   justify-content: center;
   color: black;

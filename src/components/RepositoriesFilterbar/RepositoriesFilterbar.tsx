@@ -1,17 +1,40 @@
 import RepositoriesFilterbarStyled from "./RepositoriesFilterbarStyled";
+import getRepositoryByName from "../../hooks/getRepositoryByName/getRepositoryByName";
+import Button from "../Button/Button";
+import { RepositoriesData } from "../../types/types";
+import { useState } from "react";
 
-const RepositoriesFilterbar = (): JSX.Element => {
+interface RepositoriesFilterbarProps {
+  username: string;
+  onUpdateFilteredRepositories: (filteredRepos: RepositoriesData) => void;
+}
+
+const RepositoriesFilterbar = ({
+  username,
+  onUpdateFilteredRepositories,
+}: RepositoriesFilterbarProps): JSX.Element => {
+  const [userInput, setUserInput] = useState("");
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    onUpdateFilteredRepositories([]);
+    setUserInput(event.target.value);
+  };
+
+  const filterRepositoryByName = async () => {
+    const filteredRepos = await getRepositoryByName(username, userInput);
+    onUpdateFilteredRepositories(filteredRepos);
+  };
+
   return (
     <RepositoriesFilterbarStyled>
       <input
-        type="Search repositories"
+        type="text"
         placeholder="Filter repository..."
         className="filter-bar"
+        onChange={handleInputChange}
+        value={userInput}
       />
-      <select name="select" className="filter-options">
-        <option value="language">By Language</option>
-        <option value="name">By Name</option>
-      </select>
+      <Button action={filterRepositoryByName} type="submit" text="Search" />
     </RepositoriesFilterbarStyled>
   );
 };
