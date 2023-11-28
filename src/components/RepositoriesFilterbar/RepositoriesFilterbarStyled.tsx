@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const RepositoriesFilterbarStyled = styled.div`
+const RepositoriesFilterbarStyled = styled.form`
   display: flex;
   justify-content: center;
   color: black;

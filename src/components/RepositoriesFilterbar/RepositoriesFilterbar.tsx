@@ -20,13 +20,16 @@ const RepositoriesFilterbar = ({
     setUserInput(event.target.value);
   };
 
-  const filterRepositoryByName = async () => {
+  const filterRepositoryByName = async (
+    event: React.FormEvent<HTMLFormElement>
+  ) => {
+    event.preventDefault();
     const filteredRepos = await getRepositoryByName(username, userInput);
     onUpdateFilteredRepositories(filteredRepos);
   };
 
   return (
-    <RepositoriesFilterbarStyled>
+    <RepositoriesFilterbarStyled onSubmit={filterRepositoryByName}>
       <input
         type="text"
         placeholder="Filter repository..."
@@ -34,7 +37,7 @@ const RepositoriesFilterbar = ({
         onChange={handleInputChange}
         value={userInput}
       />
-      <Button action={filterRepositoryByName} type="submit" text="Search" />
+      <Button type="submit" text="Search" />
     </RepositoriesFilterbarStyled>
   );
 };

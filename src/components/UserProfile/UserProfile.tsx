@@ -1,11 +1,18 @@
-import { RepositoriesData, UserData, RepositoryData } from "../../types/types";
+import { RepositoriesData, UserData } from "../../types/types";
+import RepositoriesFilterbar from "../RepositoriesFilterbar/RepositoriesFilterbar";
+import RepositoryList from "../RepositoryList/RepositoryList";
 import UserProfileStyled from "./UserProfileStyled";
 interface UserProps {
   user: UserData;
   repositories: RepositoriesData;
+  onUpdateFilteredRepositories: (filteredRepos: RepositoriesData) => void;
 }
 
-const UserProfile = ({ user, repositories }: UserProps): JSX.Element => {
+const UserProfile = ({
+  user,
+  repositories,
+  onUpdateFilteredRepositories,
+}: UserProps): JSX.Element => {
   return (
     <>
       <UserProfileStyled className="user-profile">
@@ -18,18 +25,14 @@ const UserProfile = ({ user, repositories }: UserProps): JSX.Element => {
           width="296"
           height="296"
         />
-
-        <ul className="user-profile__repository-section">
-          {repositories &&
-            repositories.map((repo: RepositoryData, index: number) => (
-              <li key={index} className="user-profile__repositories">
-                {repo.name}
-                <span className="user-profile__language">{repo.language}</span>
-                <p className="user-profile__description">{repo.description}</p>
-              </li>
-            ))}
-        </ul>
+        {user.login && (
+          <RepositoriesFilterbar
+            username={user.login}
+            onUpdateFilteredRepositories={onUpdateFilteredRepositories}
+          />
+        )}
       </UserProfileStyled>
+      <RepositoryList repositories={repositories} />
     </>
   );
 };

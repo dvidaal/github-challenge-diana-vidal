@@ -5,7 +5,6 @@ import { RepositoriesData, UserData } from "../../types/types";
 import UserSearchbarStyled from "./UserSearchbarStyled";
 import UserProfile from "../UserProfile/UserProfile";
 import getRepository from "../../hooks/getRepository/getRepository";
-import RepositoriesFilterbar from "../RepositoriesFilterbar/RepositoriesFilterbar";
 
 const UserSearchbar = (): JSX.Element => {
   const [user, setUser] = useState<UserData>({
@@ -47,14 +46,12 @@ const UserSearchbar = (): JSX.Element => {
         />
         <Button text="Search" type="submit" />
       </UserSearchbarStyled>
-      <UserProfile user={user} repositories={repositories} />
 
-      {user.login && (
-        <RepositoriesFilterbar
-          username={user.login}
-          onUpdateFilteredRepositories={onUpdateFilteredRepositories}
-        />
-      )}
+      <UserProfile
+        user={user}
+        repositories={repositories}
+        onUpdateFilteredRepositories={onUpdateFilteredRepositories}
+      />
     </>
   );
 };
