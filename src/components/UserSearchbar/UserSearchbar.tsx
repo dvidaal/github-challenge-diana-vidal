@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import Button from "../Button/Button";
-import getUser from "../../hooks/getUser/getUser";
-import { RepositoriesData, UserData } from "../../types/types";
+import { RepositoriesData, RepositoryData, UserData } from "../../types/types";
 import UserSearchbarStyled from "./UserSearchbarStyled";
 import UserProfile from "../UserProfile/UserProfile";
-import getRepository from "../../hooks/getRepository/getRepository";
+import useUser from "../../hooks/useUSer/useUser";
 
 const UserSearchbar = (): JSX.Element => {
   const [user, setUser] = useState<UserData>({
@@ -13,16 +12,20 @@ const UserSearchbar = (): JSX.Element => {
     name: "",
   });
 
+  const { getUser } = useUser();
+  const { getRepository } = useUser();
   const [repositories, setRepositories] = useState<RepositoriesData>([]);
   const [inputValue, setInputValue] = useState<string>("");
 
   const handleSearch = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const response = await getUser(inputValue);
+    const response = (await getUser(inputValue)) as UserData;
     setUser(response);
 
-    const responseRepo = await getRepository(response.login);
+    const responseRepo = (await getRepository(
+      response.login
+    )) as RepositoryData[];
     setRepositories(responseRepo);
   };
 

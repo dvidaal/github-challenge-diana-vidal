@@ -1,8 +1,8 @@
 import RepositoriesFilterbarStyled from "./RepositoriesFilterbarStyled";
-import getRepositoryByName from "../../hooks/getRepositoryByName/getRepositoryByName";
 import Button from "../Button/Button";
 import { RepositoriesData } from "../../types/types";
 import { useState } from "react";
+import useUser from "../../hooks/useUSer/useUser";
 
 interface RepositoriesFilterbarProps {
   username: string;
@@ -14,6 +14,7 @@ const RepositoriesFilterbar = ({
   onUpdateFilteredRepositories,
 }: RepositoriesFilterbarProps): JSX.Element => {
   const [userInput, setUserInput] = useState<string>("");
+  const { getRepositoryByName } = useUser();
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     onUpdateFilteredRepositories([]);
