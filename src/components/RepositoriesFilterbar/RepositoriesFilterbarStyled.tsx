@@ -14,6 +14,7 @@ const RepositoriesFilterbarStyled = styled.form`
     color: ${(props) => props.theme.colors.mainColor};
     border-radius: 10px;
     width: 100%;
+    margin-left: 30px;
   }
 
   .filter-options {

@@ -12,6 +12,7 @@ const UserSearchbarStyled = styled.form`
     height: 40px;
     padding: 10px 16px;
     border-radius: 10px;
+    margin-left: 30px;
   }
 `;
 

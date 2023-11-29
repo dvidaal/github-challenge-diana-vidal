@@ -33,7 +33,7 @@ const RepositoriesFilterbar = ({
     <RepositoriesFilterbarStyled onSubmit={filterRepositoryByName}>
       <input
         type="text"
-        placeholder="Filter repository..."
+        placeholder="Filter repository by name"
         className="filter-bar"
         onChange={handleInputChange}
         value={userInput}
