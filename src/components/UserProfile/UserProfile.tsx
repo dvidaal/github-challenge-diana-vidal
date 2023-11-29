@@ -20,11 +20,12 @@ const UserProfile = ({
         <span className="user-profile__username">{user.login}</span>
         <img
           src={user.avatar_url}
-          alt="Avatar user"
           className="user-profile__avatar"
+          alt="Avatar user"
           width="296"
           height="296"
         />
+
         {user.login && (
           <RepositoriesFilterbar
             username={user.login}

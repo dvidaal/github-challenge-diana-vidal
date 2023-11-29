@@ -4,7 +4,7 @@ import { RepositoriesData, RepositoryData } from "../../types/types";
 const getRepository = async (username: string): Promise<RepositoriesData> => {
   try {
     const { data: repositoryData } = await axios.get<RepositoryData[]>(
-      `https://api.github.com/users/${username}/repos?per_page=10&page=1`
+      `https://api.github.com/users/${username}/repos?per_page=20&page=1`
     );
 
     return repositoryData;

@@ -12,8 +12,8 @@ const RepositoryListStyled = styled.div`
     }
 
     &__repositories {
-      color: #000;
-      font-family: "Roboto";
+      color: ${(props) => props.theme.colors.mainColor};
+      font-family: ${(props) => props.theme.mainFont};
       font-weight: 900;
       font-size: 1.5rem;
       border-bottom: 1px solid #ccc;

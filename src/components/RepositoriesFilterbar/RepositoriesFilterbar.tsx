@@ -13,7 +13,7 @@ const RepositoriesFilterbar = ({
   username,
   onUpdateFilteredRepositories,
 }: RepositoriesFilterbarProps): JSX.Element => {
-  const [userInput, setUserInput] = useState("");
+  const [userInput, setUserInput] = useState<string>("");
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     onUpdateFilteredRepositories([]);
