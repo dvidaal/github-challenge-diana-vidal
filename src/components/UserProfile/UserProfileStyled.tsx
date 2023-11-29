@@ -9,8 +9,8 @@ const UserProfileStyled = styled.article`
 
   .user-profile {
     &__username {
-      color: #000;
-      font-family: "Roboto";
+      color: ${(props) => props.theme.colors.mainColor};
+      font-family: ${(props) => props.theme.mainFont};
       font-style: italic;
     }
 
@@ -20,8 +20,8 @@ const UserProfileStyled = styled.article`
     }
 
     &__name {
-      color: #000;
-      font-family: "Roboto";
+      color: ${(props) => props.theme.colors.mainColor};
+      font-family: ${(props) => props.theme.mainFont};
       font-weight: 900;
     }
   }

@@ -9,7 +9,6 @@ const getRepositoryByName = async (
     const { data: repositoryData } = await axios.get<RepositoriesFilterData>(
       `https://api.github.com/search/repositories?q=${repoName}+user:${username}`
     );
-    console.log(repositoryData);
     return repositoryData.items;
   } catch (error) {
     console.error("Error fetching repositories by name", error);

@@ -14,7 +14,7 @@ const UserSearchbar = (): JSX.Element => {
   });
 
   const [repositories, setRepositories] = useState<RepositoriesData>([]);
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState<string>("");
 
   const handleSearch = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
