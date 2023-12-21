@@ -5,7 +5,7 @@ import useUser from "./useUser";
 import { renderHook } from "@testing-library/react";
 
 describe("Given a getUser custom hook", () => {
-  test("When called with the existing user 'dvidaal', then it should show the user with a list of repositories", async () => {
+  test("When called with the existing user, then it should show the user with a list of repositories", async () => {
     const username: string = userMock.login;
 
     const expectedResult = getUserResponseMock;
