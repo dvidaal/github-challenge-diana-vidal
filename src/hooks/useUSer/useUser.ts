@@ -8,33 +8,6 @@ import {
 } from "../../types/types";
 import { useCallback } from "react";
 
-/* const useUser = () => {
-  const getUser = useCallback(async (username: string): Promise<UserData> => {
-    try {
-      const { data: userInfoData } = await axios.get<GithubResponse>(
-        `/api/users/${username}`,
-        {
-          headers: {
-            "X-GitHub-Api-Version": "2022-11-28",
-          },
-        }
-      );
-
-      return {
-        login: userInfoData.login,
-        avatar_url: userInfoData.avatar_url,
-        name: userInfoData.name,
-      };
-    } catch (error) {
-      console.error("Error fetching users", error);
-    }
-
-    return { login: "", avatar_url: "", name: "" };
-  }, []);
-
-
- */
-
 const useUser = () => {
   const baseUrl = import.meta.env.DEV ? "/api" : "https://api.github.com";
 
@@ -66,7 +39,7 @@ const useUser = () => {
       try {
         const { data: repositoryData } =
           await axios.get<RepositoriesFilterData>(
-            `/api/search/repositories?q=${repoName}+user:${username}`
+            `${baseUrl}/search/repositories?q=${repoName}+user:${username}`
           );
         return repositoryData.items;
       } catch (error) {
@@ -81,7 +54,7 @@ const useUser = () => {
     async (username: string): Promise<RepositoriesData> => {
       try {
         const { data: repositoryData } = await axios.get<RepositoryData[]>(
-          `/api/users/${username}/repos?per_page=20&page=1`
+          `${baseUrl}/users/${username}/repos?per_page=20&page=1`
         );
 
         return repositoryData;
