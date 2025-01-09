@@ -7,13 +7,41 @@ import {
   UserData,
 } from "../../types/types";
 import { useCallback } from "react";
-//import { apiUrl } from "../../utils/constants";
 
-const useUser = () => {
+/* const useUser = () => {
   const getUser = useCallback(async (username: string): Promise<UserData> => {
     try {
       const { data: userInfoData } = await axios.get<GithubResponse>(
         `/api/users/${username}`,
+        {
+          headers: {
+            "X-GitHub-Api-Version": "2022-11-28",
+          },
+        }
+      );
+
+      return {
+        login: userInfoData.login,
+        avatar_url: userInfoData.avatar_url,
+        name: userInfoData.name,
+      };
+    } catch (error) {
+      console.error("Error fetching users", error);
+    }
+
+    return { login: "", avatar_url: "", name: "" };
+  }, []);
+
+
+ */
+
+const useUser = () => {
+  const baseUrl = import.meta.env.DEV ? "/api" : "https://api.github.com";
+
+  const getUser = useCallback(async (username: string): Promise<UserData> => {
+    try {
+      const { data: userInfoData } = await axios.get<GithubResponse>(
+        `${baseUrl}/users/${username}`,
         {
           headers: {
             "X-GitHub-Api-Version": "2022-11-28",
